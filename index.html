@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ציפורים בראש - חנות הציפורים שלך</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="logo">🦜 ציפורים בראש</div>
+        <ul class="nav-links">
+            <li><a href="#home">בית</a></li>
+            <li><a href="#gallery">גלריה</a></li>
+            <li><a href="#contact">צור קשר</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="./assets/hero_video.mp4" type="video/mp4">
+            הדפדפן שלך לא תומך בווידאו.
+        </video>
+        <div class="hero-overlay">
+            <h1 class="fade-in-up">העולם הצבעוני של הציפורים</h1>
+            <p class="fade-in-up delay-1">תוכים, ציפורי שיר, וכל מה שהחברים המעופפים שלכם צריכים.</p>
+            <a href="#gallery" class="cta-button fade-in-up delay-2">גלה עוד</a>
+        </div>
+    </header>
+
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">הלהקה שלנו</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item card">
+                <img src="./assets/image.png" alt="חיה 1">
+                <div class="card-content">
+                    <h3>תוכים מדברים</h3>
+                    <p>חכמים, מצחיקים ומלאי אישיות.</p>
+                </div>
+            </div>
+            <div class="gallery-item card">
+                <img src="./assets/image_copy.png" alt="חיה 2">
+                <div class="card-content">
+                    <h3>ציפורי שיר</h3>
+                    <p>מנגינות טבעיות שימלאו את הבית.</p>
+                </div>
+            </div>
+            <div class="gallery-item card">
+                <img src="./assets/image_copy_2.png" alt="חיה 3" class="contain-img">
+                <div class="card-content">
+                    <h3>גוזלים להאכלה</h3>
+                    <p>חוויה של חיבור ואהבה מהרגע הראשון.</p>
+                </div>
+            </div>
+            <div class="gallery-item card">
+                <img src="./assets/image_copy_3.png" alt="חיה 4">
+                <div class="card-content">
+                    <h3>ציוד ומזון</h3>
+                    <p>כל מה שצריך לבריאות ואושר הציפור.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="owner-letter-section">
+        <div class="letter-container glass">
+            <h2 class="section-title">מילה מיריב</h2>
+            <div class="letter-content">
+                <img src="./assets/image_copy_4.png" alt="מכתב מהבעלים" class="letter-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">בואו לבקר</h2>
+        <div class="contact-container glass">
+            <div class="contact-info">
+                <p>אנחנו כאן לכל שאלה ובקשה.</p>
+                <p>📍 כתובת: מרכז מסחרי כיכר צה"ל 180, קרית שמונה</p>
+                <p>📞 טלפון: 050-1234567</p>
+            </div>
+            <div class="contact-image">
+                <img src="./assets/cartis_bikur.png" alt="כרטיס ביקור">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 כל הזכויות שמורות לציפורים בראש.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
