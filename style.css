@@ -545,7 +545,7 @@ footer {
 
     .hero {
         height: auto;
-        min-height: 60vh;
+        min-height: auto;
     }
 
     .hero-video-bg {
@@ -570,8 +570,7 @@ footer {
     }
 
     .logo-video {
-        width: 45px;
-        height: 45px;
+        display: none;
     }
 
     .nav-links {
