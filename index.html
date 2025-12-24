@@ -23,90 +23,101 @@
                 <input type="text" placeholder="חפשו מוצר, מותג או קטגוריה...">
             </div>
             <ul class="nav-links">
-                <li><a href="#dogs">כלבים</a></li>
-                <li><a href="#cats">חתולים</a></li>
                 <li><a href="#birds">ציפורים</a></li>
+                <li><a href="#fish">דגים</a></li>
+                <li><a href="#rodents">מכרסמים</a></li>
+                <li><a href="#rabbits">ארנבונים</a></li>
                 <li><a href="#contact">צור קשר</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content fade-in-up">
-                <h1>שירותי טיפול בחיות מחמד</h1>
-                <p>אנחנו דואגים לחברים הכי טובים שלכם עם המון אהבה, מזון איכותי וציוד מקצועי.</p>
-                <div class="hero-buttons">
-                    <a href="#categories" class="cta-button">לקנייה עכשיו</a>
-                </div>
+    <section class="hero">
+        <div class="hero-content fade-in-up">
+            <div class="hero-logo-container">
+                <video autoplay muted loop playsinline class="hero-logo-video">
+                    <source src="./assets/animation.mp4" type="video/mp4">
+                </video>
             </div>
-            <img src="./assets/hero_banner.png" alt="Pet Care Services" class="hero-image">
-        </section>
-
-        <section class="owner-section">
-            <div class="owner-container">
-                <h2 class="section-title">מילה מהבעלים</h2>
-                <div class="owner-letter">
-                    <img src="./assets/note.png" alt="מכתב מהבעלים">
-                </div>
+            <h1>ציפורים בראש</h1>
+            <p>חנות חיות המתמחה במגוון רחב של ציפורים, דגים, מכרסמים וארנבונים מיוחדים. אצלנו תמצאו את כל מה שהחברים
+                הקטנים שלכם צריכים.</p>
+            <div class="hero-buttons">
+                <a href="#categories" class="cta-button">צפו במגוון שלנו</a>
             </div>
-        </section>
+        </div>
+        <img src="./assets/hero_banner.png" alt="Pet Care Services" class="hero-image">
+    </section>
 
-        <section class="collection-tags">
-            <div class="tag active">הכל</div>
-            <div class="tag">מזון</div>
-            <div class="tag">צעצועים</div>
-            <div class="tag">טיפוח</div>
-            <div class="tag">אביזרים</div>
-            <div class="tag">בריאות</div>
-        </section>
-
-        <section id="categories" class="categories">
-            <h2 class="section-title">הקטגוריות שלנו</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <img src="./assets/image_copy.png" alt="Dogs">
-                    <h3>כלבים</h3>
-                    <button class="add-to-cart">צפה במוצרים</button>
-                </div>
-                <div class="category-card">
-                    <img src="./assets/image_copy_2.png" alt="Cats">
-                    <h3>חתולים</h3>
-                    <button class="add-to-cart">צפה במוצרים</button>
-                </div>
-                <div class="category-card">
-                    <img src="./assets/image_copy_3.png" alt="Birds">
-                    <h3>ציפורים</h3>
-                    <button class="add-to-cart">צפה במוצרים</button>
-                </div>
+    <section class="owner-section">
+        <div class="owner-container">
+            <h2 class="section-title">מילה מהבעלים</h2>
+            <div class="owner-letter">
+                <img src="./assets/note.png" alt="מכתב מהבעלים">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="products">
-            <h2 class="section-title">הנמכרים ביותר</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="./assets/image_copy.png" alt="Product 1">
-                    <h4>מזון יבש פרימיום לכלבים</h4>
-                    <button class="add-to-cart">הוסף לסל</button>
-                </div>
-                <div class="product-card">
-                    <img src="./assets/image_copy_2.png" alt="Product 2">
-                    <h4>חול מתגבש לחתולים</h4>
-                    <button class="add-to-cart">הוסף לסל</button>
-                </div>
-                <div class="product-card">
-                    <img src="./assets/image_copy_3.png" alt="Product 3">
-                    <h4>כלוב לתוכים מרווח</h4>
-                    <button class="add-to-cart">הוסף לסל</button>
-                </div>
-                <div class="product-card">
-                    <img src="./assets/image_copy_4.png" alt="Product 4">
-                    <h4>אקווריום מעוצב</h4>
-                    <button class="add-to-cart">הוסף לסל</button>
-                </div>
+    <section class="collection-tags">
+        <div class="tag active">הכל</div>
+        <div class="tag">מזון</div>
+        <div class="tag">צעצועים</div>
+        <div class="tag">טיפוח</div>
+        <div class="tag">אביזרים</div>
+        <div class="tag">בריאות</div>
+    </section>
+
+    <section id="categories" class="categories">
+        <h2 class="section-title">הקטגוריות שלנו</h2>
+        <div class="category-grid">
+            <div id="birds" class="category-card">
+                <img src="./assets/image_copy_3.png" alt="Birds">
+                <h3>ציפורים</h3>
+                <button class="add-to-cart">צפה במוצרים</button>
             </div>
-        </section>
+            <div id="fish" class="category-card">
+                <img src="./assets/image_copy_4.png" alt="Fish">
+                <h3>דגים</h3>
+                <button class="add-to-cart">צפה במוצרים</button>
+            </div>
+            <div id="rodents" class="category-card">
+                <img src="./assets/image.png" alt="Rodents">
+                <h3>מכרסמים</h3>
+                <button class="add-to-cart">צפה במוצרים</button>
+            </div>
+            <div id="rabbits" class="category-card">
+                <img src="./assets/image_copy.png" alt="Rabbits">
+                <h3>ארנבונים</h3>
+                <button class="add-to-cart">צפה במוצרים</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <h2 class="section-title">מוצרים נבחרים</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="./assets/image_copy_3.png" alt="Product 1">
+                <h4>כלוב לתוכים מרווח ומעוצב</h4>
+                <button class="add-to-cart">פרטים נוספים</button>
+            </div>
+            <div class="product-card">
+                <img src="./assets/image_copy_4.png" alt="Product 2">
+                <h4>אקווריום פנורמי לדגים</h4>
+                <button class="add-to-cart">פרטים נוספים</button>
+            </div>
+            <div class="product-card">
+                <img src="./assets/image.png" alt="Product 3">
+                <h4>מזון איכותי למכרסמים</h4>
+                <button class="add-to-cart">פרטים נוספים</button>
+            </div>
+            <div class="product-card">
+                <img src="./assets/image_copy.png" alt="Product 4">
+                <h4>מתקן שתייה לארנבונים</h4>
+                <button class="add-to-cart">פרטים נוספים</button>
+            </div>
+        </div>
+    </section>
     </main>
 
     <footer id="contact">
