@@ -4,124 +4,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ציפורים בראש - כל מה שהחברים שלכם צריכים</title>
+    <title>ציפורים בראש - חנות חיות מיוחדת בקרית שמונה</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description"
+        content="ציפורים בראש - חנות החיות המובילה בקרית שמונה. ציפורים, דגים, מכרסמים, ארנבונים וציוד נלווה ברמה הגבוהה ביותר.">
 </head>
 
 <body>
     <header>
         <nav class="main-nav">
-            <div class="logo">
+            <a href="#" class="logo">
                 <video autoplay muted loop playsinline class="logo-video">
                     <source src="./assets/animation.mp4" type="video/mp4">
                 </video>
                 ציפורים בראש
-            </div>
-            <div class="search-container">
-                <input type="text" placeholder="חפשו מוצר, מותג או קטגוריה...">
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#birds">ציפורים</a></li>
-                <li><a href="#fish">דגים</a></li>
-                <li><a href="#rodents">מכרסמים</a></li>
-                <li><a href="#rabbits">ארנבונים</a></li>
+                <li><a href="#rodents">ארנבונים ומכרסמים</a></li>
+                <li><a href="#fish">דגים ואקווריומים</a></li>
+                <li><a href="#fishing">ציוד דיג</a></li>
                 <li><a href="#contact">צור קשר</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content fade-in-up">
-            <div class="hero-logo-container">
-                <video autoplay muted loop playsinline class="hero-logo-video">
-                    <source src="./assets/animation.mp4" type="video/mp4">
-                </video>
+    <main>
+        <section class="hero">
+            <video autoplay muted loop playsinline class="hero-video-bg">
+                <source src="./assets/hero_video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>ציפורים בראש</h1>
+                <p>הבית השני של החברים הכי טובים שלכם. חנות חיות חווייתית עם מגוון נדיר של ציפורים, דגים ומכרסמים.</p>
+                <div class="hero-buttons">
+                    <a href="#categories" class="cta-button">גלו את המגוון שלנו</a>
+                </div>
             </div>
-            <h1>ציפורים בראש</h1>
-            <p>חנות חיות המתמחה במגוון רחב של ציפורים, דגים, מכרסמים וארנבונים מיוחדים. אצלנו תמצאו את כל מה שהחברים
-                הקטנים שלכם צריכים.</p>
-            <div class="hero-buttons">
-                <a href="#categories" class="cta-button">צפו במגוון שלנו</a>
-            </div>
-        </div>
-        <img src="./assets/hero_banner.png" alt="Pet Care Services" class="hero-image">
-    </section>
+        </section>
 
-    <section class="owner-section">
-        <div class="owner-container">
+        <section id="owner" class="owner-section">
             <h2 class="section-title">מילה מהבעלים</h2>
-            <div class="owner-letter">
-                <img src="./assets/note.png" alt="מכתב מהבעלים">
+            <div class="owner-container">
+                <div class="owner-info">
+                    <h3>ברוכים הבאים לציפורים בראש</h3>
+                    <p>המומחיות שלנו היא האהבה לבעלי חיים. אנחנו כאן כדי להעניק לכם ולחברים הקטנים שלכם את המעטפת
+                        המקצועית והאיכותית ביותר.</p>
+                    <p>במשך שנים בנינו מקום שהוא הרבה יותר מחנות - הוא בית לקהילה של אוהבי חיות, מקום של ידע, ניסיון
+                        ומסירות ללא פשרות.</p>
+                </div>
+                <div class="owner-letter">
+                    <img src="./assets/note.png" alt="מכתב מהבעלים">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="collection-tags">
-        <div class="tag active">הכל</div>
-        <div class="tag">מזון</div>
-        <div class="tag">צעצועים</div>
-        <div class="tag">טיפוח</div>
-        <div class="tag">אביזרים</div>
-        <div class="tag">בריאות</div>
-    </section>
+        <section id="categories" class="categories">
+            <h2 class="section-title">הקטגוריות שלנו</h2>
+            <div class="collection-tags">
+                <div class="tag active" data-filter="all">הכל</div>
+                <div class="tag" data-filter="birds">ציפורים</div>
+                <div class="tag" data-filter="rodents">ארנבונים ומכרסמים</div>
+                <div class="tag" data-filter="fish">דגים</div>
+                <div class="tag" data-filter="fishing">ציוד דיג</div>
+                <div class="tag" data-filter="supplies">ציוד ומזון</div>
+            </div>
+            <div class="category-grid">
+                <div id="birds" class="category-card reveal" data-category="birds">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg" alt="ציפורים">
+                    <h3>ציפורים</h3>
+                    <p>תוכים ממגדלים, כנריות וציפורי שיר</p>
+                    <a href="#products" class="add-to-cart-link" data-filter="birds">צפה במגוון</a>
+                </div>
+                <div id="rodents" class="category-card reveal" data-category="rodents">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg" alt="ארנבונים">
+                    <h3>ארנבונים</h3>
+                    <p>ארנבונים ננסיים, שרקנים ואוגרים מחכים לכם</p>
+                    <a href="#products" class="add-to-cart-link" data-filter="rodents">צפה במגוון</a>
+                </div>
+                <div id="fish" class="category-card reveal" data-category="fish">
+                    <video autoplay muted loop playsinline class="category-video"
+                        style="width:250px; height:250px; object-fit: cover; border-radius: 50%; border: 10px solid var(--bg-main); box-shadow: var(--shadow-soft); margin-bottom: 2.5rem;">
+                        <source src="./new_assets/WhatsApp Video 2025-12-24 at 11.44.03 AM.mp4" type="video/mp4">
+                    </video>
+                    <h3>עולם המים</h3>
+                    <p>אקווריומים מעוצבים ודגי נוי מרהיבים</p>
+                    <a href="#products" class="add-to-cart-link" data-filter="fish">צפה במגוון</a>
+                </div>
+                <div id="fishing" class="category-card reveal" data-category="fishing">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM.jpeg" alt="ציוד דיג">
+                    <h3>ציוד דיג</h3>
+                    <p>מחלקת דיג מקצועית עם המותגים המובילים</p>
+                    <a href="#products" class="add-to-cart-link" data-filter="fishing">צפה במגוון</a>
+                </div>
+            </div>
+        </section>
 
-    <section id="categories" class="categories">
-        <h2 class="section-title">הקטגוריות שלנו</h2>
-        <div class="category-grid">
-            <div id="birds" class="category-card">
-                <img src="./assets/image_copy_3.png" alt="Birds">
-                <h3>ציפורים</h3>
-                <button class="add-to-cart">צפה במוצרים</button>
+        <section id="products" class="products">
+            <h2 class="section-title">מוצרים נבחרים</h2>
+            <div class="product-grid">
+                <!-- Birds -->
+                <div class="product-card reveal" data-category="birds">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg" alt="תוכים קאיק">
+                    <h4>זוג תוכים קאיק (Caique) מדהימים</h4>
+                    <p class="price">החל מ-1,200 ₪</p>
+                    <a href="tel:052-6109617" class="add-to-cart-link">חייגו להזמנה</a>
+                </div>
+                <div class="product-card reveal" data-category="birds">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.42.37 AM.jpeg" alt="מערכת כלובים">
+                    <h4>מערכת כלובי תצוגה מקצועית</h4>
+                    <p class="price">צור קשר למחיר</p>
+                    <a href="tel:052-6109617" class="add-to-cart-link">פרטים נוספים</a>
+                </div>
+                <!-- Rodents -->
+                <div class="product-card reveal" data-category="rodents">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg" alt="ארנבון שמוט אוזניים">
+                    <h4>ארנבון ננסי שמוט אוזניים</h4>
+                    <p class="price">250 ₪</p>
+                    <a href="tel:052-6109617" class="add-to-cart-link">חייגו להזמנה</a>
+                </div>
+                <!-- Supplies -->
+                <div class="product-card reveal" data-category="supplies">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (3).jpeg" alt="שימורי מונג'">
+                    <h4>שימורי Monge Fresh - מבחר טעמים</h4>
+                    <p class="price">12 ₪ ליחידה</p>
+                    <a href="tel:052-6109617" class="add-to-cart-link">הזמן עכשיו</a>
+                </div>
+                <!-- Fishing -->
+                <div class="product-card reveal" data-category="fishing">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (2).jpeg" alt="רולרים לדיג">
+                    <h4>רולרים מקצועיים של המותג Sufix</h4>
+                    <p class="price">מבצע בחנות</p>
+                    <a href="tel:052-6109617" class="add-to-cart-link">פרטים בטלפון</a>
+                </div>
+                <!-- Toys -->
+                <div class="product-card reveal" data-category="supplies">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM (3).jpeg" alt="צעצועי תוכים">
+                    <h4>מגוון צעצועים צבעוניים לתוכים</h4>
+                    <p class="price">החל מ-35 ₪</p>
+                    <a href="tel:052-6109617" class="add-to-cart-link">חייגו להזמנה</a>
+                </div>
             </div>
-            <div id="fish" class="category-card">
-                <img src="./assets/image_copy_4.png" alt="Fish">
-                <h3>דגים</h3>
-                <button class="add-to-cart">צפה במוצרים</button>
-            </div>
-            <div id="rodents" class="category-card">
-                <img src="./assets/image.png" alt="Rodents">
-                <h3>מכרסמים</h3>
-                <button class="add-to-cart">צפה במוצרים</button>
-            </div>
-            <div id="rabbits" class="category-card">
-                <img src="./assets/image_copy.png" alt="Rabbits">
-                <h3>ארנבונים</h3>
-                <button class="add-to-cart">צפה במוצרים</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="products">
-        <h2 class="section-title">מוצרים נבחרים</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="./assets/image_copy_3.png" alt="Product 1">
-                <h4>כלוב לתוכים מרווח ומעוצב</h4>
-                <button class="add-to-cart">פרטים נוספים</button>
+        <section class="gallery">
+            <h2 class="section-title">מהחנות שלנו</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM.jpeg"
+                        alt="חזית החנות - ציפורים בראש">
+                    <div class="gallery-overlay"><i class="fas fa-store"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <video autoplay muted loop playsinline>
+                        <source src="./new_assets/WhatsApp Video 2025-12-24 at 11.43.29 AM.mp4" type="video/mp4">
+                    </video>
+                    <div class="gallery-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM (2).jpeg" alt="פנים החנות">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.16 AM.jpeg" alt="מחלקת הציוד">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM (4).jpeg" alt="צעצועים וכלובים">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.09 AM.jpeg" alt="כרטיס ביקור">
+                    <div class="gallery-overlay"><i class="fas fa-id-card"></i></div>
+                </div>
             </div>
-            <div class="product-card">
-                <img src="./assets/image_copy_4.png" alt="Product 2">
-                <h4>אקווריום פנורמי לדגים</h4>
-                <button class="add-to-cart">פרטים נוספים</button>
-            </div>
-            <div class="product-card">
-                <img src="./assets/image.png" alt="Product 3">
-                <h4>מזון איכותי למכרסמים</h4>
-                <button class="add-to-cart">פרטים נוספים</button>
-            </div>
-            <div class="product-card">
-                <img src="./assets/image_copy.png" alt="Product 4">
-                <h4>מתקן שתייה לארנבונים</h4>
-                <button class="add-to-cart">פרטים נוספים</button>
-            </div>
-        </div>
-    </section>
+        </section>
     </main>
 
     <footer id="contact">
         <div class="footer-content">
+            <div class="footer-section">
+                <h4>ציפורים בראש</h4>
+                <p>חנות חיות המתמחה בגידול ומכירת ציפורים, דגים ומכרסמים. שירות מקצועי ויחס אישי לכל לקוח.</p>
+            </div>
             <div class="footer-section">
                 <h4>מידע שימושי</h4>
                 <ul>
@@ -134,9 +204,9 @@
             <div class="footer-section">
                 <h4>צור קשר</h4>
                 <ul>
-                    <li>📍 כתובת: מרכז מסחרי, קרית שמונה</li>
-                    <li>📞 טלפון: 052-6109617</li>
-                    <li>📧 אימייל: info@tziporim-barosh.co.il</li>
+                    <li>📍 מרכז מסחרי, קרית שמונה</li>
+                    <li>📞 052-6109617</li>
+                    <li>📧 info@tziporim-barosh.co.il</li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -153,7 +223,7 @@
         </div>
     </footer>
 
-    <a href="tel:0526109617" class="phone-float" target="_blank">
+    <a href="tel:052-6109617" class="phone-float">
         <i class="fas fa-phone"></i>
     </a>
 
