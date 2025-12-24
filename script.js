@@ -116,4 +116,21 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => el.style.transform = '', 100);
         });
     });
+
+    // Force autoplay for hero video (fixes mobile issues)
+    const heroVideo = document.querySelector('.hero-video-bg');
+    if (heroVideo) {
+        heroVideo.muted = true;
+        heroVideo.play().catch(error => {
+            console.log("Autoplay prevented, trying again on interaction");
+            // If prevented, attempt to play on first user interaction
+            const playOnInteraction = () => {
+                heroVideo.play();
+                document.removeEventListener('click', playOnInteraction);
+                document.removeEventListener('touchstart', playOnInteraction);
+            };
+            document.addEventListener('click', playOnInteraction);
+            document.addEventListener('touchstart', playOnInteraction);
+        });
+    }
 });
