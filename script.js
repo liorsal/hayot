@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -24,9 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Add animation class to elements
-    const animatedElements = document.querySelectorAll('.card, .section-title, .contact-container');
+    const animatedElements = document.querySelectorAll('.category-card, .product-card, .section-title, .hero-content');
     animatedElements.forEach(el => {
-        el.classList.add('fade-in-scroll');
+        el.classList.add('fade-in-up');
         observer.observe(el);
+    });
+
+    // Tag selection logic
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            tags.forEach(t => t.classList.remove('active'));
+            tag.classList.add('active');
+        });
     });
 });

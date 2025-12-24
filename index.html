@@ -4,93 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ציפורים בראש - חנות הציפורים שלך</title>
+    <title>ציפורים בראש - כל מה שהחברים שלכם צריכים</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <nav class="navbar glass">
-        <div class="logo">🦜 ציפורים בראש</div>
-        <ul class="nav-links">
-            <li><a href="#home">בית</a></li>
-            <li><a href="#gallery">גלריה</a></li>
-            <li><a href="#contact">צור קשר</a></li>
-        </ul>
-    </nav>
-
-    <header id="home" class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="./assets/hero_video.mp4" type="video/mp4">
-            הדפדפן שלך לא תומך בווידאו.
-        </video>
-        <div class="hero-overlay">
-            <h1 class="fade-in-up">העולם הצבעוני של הציפורים</h1>
-            <p class="fade-in-up delay-1">תוכים, ציפורי שיר, וכל מה שהחברים המעופפים שלכם צריכים.</p>
-            <a href="#gallery" class="cta-button fade-in-up delay-2">גלה עוד</a>
-        </div>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <video autoplay muted loop playsinline class="logo-video">
+                    <source src="./assets/animation.mp4" type="video/mp4">
+                </video>
+                ציפורים בראש
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="חפשו מוצר, מותג או קטגוריה...">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dogs">כלבים</a></li>
+                <li><a href="#cats">חתולים</a></li>
+                <li><a href="#birds">ציפורים</a></li>
+                <li><a href="#contact">צור קשר</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="gallery" class="gallery-section">
-        <h2 class="section-title">הלהקה שלנו</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item card">
-                <img src="./assets/image.png" alt="חיה 1">
-                <div class="card-content">
-                    <h3>תוכים מדברים</h3>
-                    <p>חכמים, מצחיקים ומלאי אישיות.</p>
+    <main>
+        <section class="hero">
+            <div class="hero-content fade-in-up">
+                <h1>שירותי טיפול בחיות מחמד</h1>
+                <p>אנחנו דואגים לחברים הכי טובים שלכם עם המון אהבה, מזון איכותי וציוד מקצועי.</p>
+                <div class="hero-buttons">
+                    <a href="#categories" class="cta-button">לקנייה עכשיו</a>
                 </div>
             </div>
-            <div class="gallery-item card">
-                <img src="./assets/image_copy.png" alt="חיה 2">
-                <div class="card-content">
-                    <h3>ציפורי שיר</h3>
-                    <p>מנגינות טבעיות שימלאו את הבית.</p>
+            <img src="./assets/hero_banner.png" alt="Pet Care Services" class="hero-image">
+        </section>
+
+        <section class="owner-section">
+            <div class="owner-container">
+                <h2 class="section-title">מילה מהבעלים</h2>
+                <div class="owner-letter">
+                    <img src="./assets/note.png" alt="מכתב מהבעלים">
                 </div>
             </div>
-            <div class="gallery-item card">
-                <img src="./assets/image_copy_2.png" alt="חיה 3" class="contain-img">
-                <div class="card-content">
-                    <h3>גוזלים להאכלה</h3>
-                    <p>חוויה של חיבור ואהבה מהרגע הראשון.</p>
+        </section>
+
+        <section class="collection-tags">
+            <div class="tag active">הכל</div>
+            <div class="tag">מזון</div>
+            <div class="tag">צעצועים</div>
+            <div class="tag">טיפוח</div>
+            <div class="tag">אביזרים</div>
+            <div class="tag">בריאות</div>
+        </section>
+
+        <section id="categories" class="categories">
+            <h2 class="section-title">הקטגוריות שלנו</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="./assets/image_copy.png" alt="Dogs">
+                    <h3>כלבים</h3>
+                    <button class="add-to-cart">צפה במוצרים</button>
+                </div>
+                <div class="category-card">
+                    <img src="./assets/image_copy_2.png" alt="Cats">
+                    <h3>חתולים</h3>
+                    <button class="add-to-cart">צפה במוצרים</button>
+                </div>
+                <div class="category-card">
+                    <img src="./assets/image_copy_3.png" alt="Birds">
+                    <h3>ציפורים</h3>
+                    <button class="add-to-cart">צפה במוצרים</button>
                 </div>
             </div>
-            <div class="gallery-item card">
-                <img src="./assets/image_copy_3.png" alt="חיה 4">
-                <div class="card-content">
-                    <h3>ציוד ומזון</h3>
-                    <p>כל מה שצריך לבריאות ואושר הציפור.</p>
+        </section>
+
+        <section class="products">
+            <h2 class="section-title">הנמכרים ביותר</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./assets/image_copy.png" alt="Product 1">
+                    <h4>מזון יבש פרימיום לכלבים</h4>
+                    <button class="add-to-cart">הוסף לסל</button>
                 </div>
+                <div class="product-card">
+                    <img src="./assets/image_copy_2.png" alt="Product 2">
+                    <h4>חול מתגבש לחתולים</h4>
+                    <button class="add-to-cart">הוסף לסל</button>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/image_copy_3.png" alt="Product 3">
+                    <h4>כלוב לתוכים מרווח</h4>
+                    <button class="add-to-cart">הוסף לסל</button>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/image_copy_4.png" alt="Product 4">
+                    <h4>אקווריום מעוצב</h4>
+                    <button class="add-to-cart">הוסף לסל</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>מידע שימושי</h4>
+                <ul>
+                    <li><a href="#">אודותינו</a></li>
+                    <li><a href="#">שאלות ותשובות</a></li>
+                    <li><a href="#">תקנון האתר</a></li>
+                    <li><a href="#">מדיניות משלוחים</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>צור קשר</h4>
+                <ul>
+                    <li>📍 כתובת: מרכז מסחרי, קרית שמונה</li>
+                    <li>📞 טלפון: 050-1234567</li>
+                    <li>📧 אימייל: info@tziporim-barosh.co.il</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>שעות פעילות</h4>
+                <ul>
+                    <li>א' - ה': 09:00 - 20:00</li>
+                    <li>ו' וערבי חג: 09:00 - 14:00</li>
+                    <li>שבת: סגור</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <section class="owner-letter-section">
-        <div class="letter-container glass">
-            <h2 class="section-title">מילה מיריב</h2>
-            <div class="letter-content">
-                <img src="./assets/image_copy_4.png" alt="מכתב מהבעלים" class="letter-image">
-            </div>
+        <div class="footer-bottom">
+            <p>© 2025 ציפורים בראש - כל הזכויות שמורות.</p>
         </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">בואו לבקר</h2>
-        <div class="contact-container glass">
-            <div class="contact-info">
-                <p>אנחנו כאן לכל שאלה ובקשה.</p>
-                <p>📍 כתובת: מרכז מסחרי כיכר צה"ל 180, קרית שמונה</p>
-                <p>📞 טלפון: 050-1234567</p>
-            </div>
-            <div class="contact-image">
-                <img src="./assets/cartis_bikur.png" alt="כרטיס ביקור">
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 כל הזכויות שמורות לציפורים בראש.</p>
     </footer>
+
+    <a href="https://wa.me/972501234567" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
