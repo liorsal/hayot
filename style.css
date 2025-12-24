@@ -164,7 +164,6 @@ header.scrolled .nav-links a {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(0.6);
 }
 
 .hero-overlay {
@@ -646,6 +645,21 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 50vh;
+        aspect-ratio: 16/9;
+    }
+
+    .hero-video-bg {
+        object-fit: contain;
+        background: var(--bg-main);
+    }
+
+    .hero-overlay {
+        display: none;
+    }
+
     .main-nav {
         flex-direction: column;
         gap: 1.5rem;
