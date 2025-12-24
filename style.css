@@ -544,14 +544,17 @@ footer {
     }
 
     .hero {
-        height: auto;
-        min-height: auto;
+        height: 50vh;
+        min-height: 400px;
+        overflow: hidden;
     }
 
     .hero-video-bg {
-        object-fit: contain;
-        position: relative;
-        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
         width: 100%;
         background: var(--bg-main);
     }
