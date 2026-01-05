@@ -4,221 +4,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ציפורים בראש - חנות חיות קרית שמונה</title>
+    <title>ציפורים בראש - חנות החיות שלך</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
-
-
-    <!-- Header -->
+    <!-- 1. Header System -->
     <header>
-        <div class="container">
-            <div class="header-top">
-                <div class="header-content">
-
-                    <button class="hamburger-btn" id="hamburger-btn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-
-                    <a href="#" class="logo">
-                        <h1>ציפורים<span>בראש</span></h1>
-                    </a>
-
-                    <div class="search-box">
-                        <input type="text" placeholder="חיפוש מוצר...">
-                        <button><i class="fas fa-search"></i></button>
-                    </div>
-
-                    <!-- Actions removed as requested -->
-                </div>
+        <!-- Top Strip -->
+        <div class="header-top-strip">
+            <div class="top-strip-inner">
+                <div>שירות לקוחות: 052-6109617</div>
+                <div>סניף קרית שמונה</div>
+                <div>שלום אורח <i class="far fa-user"></i></div>
             </div>
-
-            <!-- Desktop Nav -->
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <i class="fas fa-dog"></i>
-                        <span>כלבים</span>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fas fa-cat"></i>
-                        <span>חתולים</span>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fas fa-dove"></i>
-                        <span>ציפורים</span>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fas fa-carrot"></i>
-                        <span>מכרסמים</span>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fas fa-fish"></i>
-                        <span>דגים</span>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fas fa-water"></i>
-                        <span>דיג</span>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fas fa-percent" style="color: var(--secondary);"></i>
-                        <span style="color: var(--secondary);">מבצעים</span>
-                    </li>
-                </ul>
-            </nav>
         </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="header-main-inner">
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    ציפורים בראש
+                </a>
+
+                <!-- Search -->
+                <div class="search-bar-container">
+                    <input type="text" class="search-input" placeholder="מה תרצו לחפש היום לחתול או לכלב?">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Tools Removed per user request -->
+                <!-- Cart/Favorites deleted -->
+            </div>
+        </div>
+
+        <!-- Navigation Strip -->
+        <nav class="header-nav">
+            <ul class="nav-ul">
+                <li class="nav-li"><a href="#">כלבים</a></li>
+                <li class="nav-li"><a href="#">חתולים</a></li>
+                <li class="nav-li"><a href="#">ציפורים</a></li>
+                <li class="nav-li"><a href="#">דגים</a></li>
+                <li class="nav-li"><a href="#">מכרסמים</a></li>
+                <li class="nav-li"><a href="#">זוחלים</a></li>
+                <li class="nav-li"><a href="#">דיג ומחנאות</a></li>
+                <li class="nav-li"><a href="#" style="color: var(--accent);">מבצעים חמים 🔥</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Mobile Sidebar -->
-    <div class="mobile-menu-overlay" id="menu-overlay"></div>
-    <div class="mobile-menu" id="mobile-menu">
-        <button class="close-menu-btn" id="close-menu"><i class="fas fa-times"></i></button>
-        <nav>
-            <a href="#" class="mobile-nav-link"><i class="fas fa-dog"></i> כלבים</a>
-            <a href="#" class="mobile-nav-link"><i class="fas fa-cat"></i> חתולים</a>
-            <a href="#" class="mobile-nav-link"><i class="fas fa-dove"></i> ציפורים</a>
-            <a href="#" class="mobile-nav-link"><i class="fas fa-carrot"></i> מכרסמים</a>
-            <a href="#" class="mobile-nav-link"><i class="fas fa-fish"></i> דגים</a>
-            <a href="#" class="mobile-nav-link"><i class="fas fa-water"></i> ציוד דיג</a>
-            <a href="#" class="mobile-nav-link" style="color: var(--secondary);"><i class="fas fa-percent"
-                    style="color: var(--secondary);"></i> מבצעים חמים</a>
-        </nav>
-    </div>
+    <!-- 2. Hero Section -->
+    <section class="hero-section">
+        <!-- Reverted to local animation.mp4 as requested -->
+        <video autoplay muted loop playsinline class="hero-bg-media">
+            <source src="./assets/animation.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-title">ברוכים הבאים למשפחה</h1>
+            <p class="hero-subtitle">ציוד, מזון ואהבה לחיות מחמד - הכל במקום אחד</p>
+        </div>
+    </section>
 
-    <!-- Main Content -->
-    <main class="container">
+    <div class="main-container">
 
-        <!-- Hero Banner (Increased height to 550px) -->
-        <section class="hero" style="margin-top: 30px; text-align: center;">
-            <div style="background: #e0e0e0; border-radius: 10px; overflow: hidden; position: relative; height: 550px;">
-                <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                    <source src="./assets/animation.mp4" type="video/mp4">
-                </video>
-                <div
-                    style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); display: flex; align-items: flex-end; padding: 40px; box-sizing: border-box;">
-                    <h2 style="color: white; font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">ברוכים הבאים
-                        לעולם החיות שלנו</h2>
+        <!-- 3. Promotion/Gallery Carousel -->
+        <div class="section-head">
+            <h2>הגלריה שלנו</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.42.37 AM.jpeg"></div>
+            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg"></div>
+            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg"></div>
+            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (2).jpeg"></div>
+            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM (3).jpeg"></div>
+            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (1).jpeg"></div>
+            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM.jpeg"></div>
+        </div>
+
+        <!-- 4. Top Products (Grid) -->
+        <div class="section-head">
+            <h2>מוצרים נבחרים</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="grid-products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-badge">מבצע</div>
+                <div class="product-img-wrapper">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (3).jpeg" alt="Product">
                 </div>
+                <h3 class="product-title">שימורי Monge Fresh לכלב בוגר - מגוון טעמים</h3>
+                <!-- Price removed -->
+                <button class="btn-add-cart">פרטים נוספים</button>
             </div>
-        </section>
 
-        <!-- Categories -->
-        <section>
-            <h2 class="section-title">המחלקות שלנו</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg" alt="ציפורים">
-                    <h3>ציפורים</h3>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg" alt="Product">
                 </div>
-                <div class="category-card">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg" alt="מכרסמים">
-                    <h3>ארנבונים ומכרסמים</h3>
-                </div>
-                <div class="category-card">
-                    <video autoplay muted loop playsinline>
-                        <source src="./new_assets/WhatsApp Video 2025-12-24 at 11.44.03 AM.mp4" type="video/mp4">
-                    </video>
-                    <h3>עולם המים</h3>
-                </div>
-                <div class="category-card">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM.jpeg" alt="דיג">
-                    <h3>ציוד דיג</h3>
-                </div>
-                <div class="category-card">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (3).jpeg" alt="מזון">
-                    <h3>מזון וציוד</h3>
-                </div>
+                <h3 class="product-title">זוג תוכים קאיק (Caique) - האכלת יד</h3>
+                <!-- Price removed -->
+                <button class="btn-add-cart">פרטים נוספים</button>
             </div>
-        </section>
 
-        <!-- Products -->
-        <section>
-            <h2 class="section-title">מוצרים נבחרים</h2>
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg" class="product-img"
-                        alt="תוכים">
-                    <div class="product-info">
-                        <div class="product-title">זוג תוכים קאיק (Caique) יפהפיים וחברותיים</div>
-                        <button class="add-btn">פרטים נוספים</button>
-                    </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (2).jpeg" alt="Product">
                 </div>
+                <h3 class="product-title">רולר דיג מקצועי Sufix 2025</h3>
+                <!-- Price removed -->
+                <button class="btn-add-cart">פרטים נוספים</button>
+            </div>
 
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.42.37 AM.jpeg" class="product-img"
-                        alt="כלוב">
-                    <div class="product-info">
-                        <div class="product-title">כלוב תצוגה מקצועי לציפורים גדולות</div>
-                        <button class="add-btn">פרטים נוספים</button>
-                    </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-badge">חדש</div>
+                <div class="product-img-wrapper">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg" alt="Product">
                 </div>
-
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <span class="product-badge">חדש!</span>
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg" class="product-img"
-                        alt="ארנבון">
-                    <div class="product-info">
-                        <div class="product-title">ארנבון ננסי שמוט אוזניים גזעי</div>
-                        <button class="add-btn">פרטים נוספים</button>
-                    </div>
+                <h3 class="product-title">ארנבון ננסי שמוט אוזניים גזעי</h3>
+                <!-- Price removed -->
+                <button class="btn-add-cart">פרטים נוספים</button>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.42.37 AM.jpeg" alt="Product">
                 </div>
-
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (2).jpeg" class="product-img"
-                        alt="רולר">
-                    <div class="product-info">
-                        <div class="product-title">רולר דיג מקצועי Sufix דגם 2025</div>
-                        <button class="add-btn">פרטים נוספים</button>
-                    </div>
+                <h3 class="product-title">כלוב תצוגה מקצועי מודולרי</h3>
+                <!-- Price removed -->
+                <button class="btn-add-cart">פרטים נוספים</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM.jpeg" alt="Product">
                 </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>ציפורים בראש</h4>
-                <ul>
-                    <li>אודותינו</li>
-                    <li>סניפים</li>
-                    <li>צור קשר</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>קטגוריות</h4>
-                <ul>
-                    <li>כלבים</li>
-                    <li>חתולים</li>
-                    <li>ציפורים</li>
-                    <li>דגים</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>שירות לקוחות</h4>
-                <ul>
-                    <li>מדיניות משלוחים</li>
-                    <li>החלפות והחזרות</li>
-                    <li>תקנון אתר</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>יצירת קשר</h4>
-                <ul>
-                    <li>052-6109617 📞</li>
-                    <li>מרכז מסחרי, קרית שמונה 📍</li>
-                </ul>
+                <h3 class="product-title">צעצועי לעיסה לתוכים גדולים</h3>
+                <!-- Price removed -->
+                <button class="btn-add-cart">פרטים נוספים</button>
             </div>
         </div>
+
+        <!-- 5. Owner Story -->
+        <div class="owner-block">
+            <div class="owner-text">
+                <h3>יריב בן שושן – זה אני 🙂</h3>
+                <p>נולדתי וגדלתי בקריית שמונה, עיר שמלווה אותי כל חיי 🏔️ ❤️ . אני בוגר תיכון דנציגר בגאווה 🎓💙 – מקום
+                    שנתן לי בסיס חזק לערכים, עבודה קשה ואהבה למקום שבו גדלתי.</p>
+                <p>מאז שאני ילד יש לי אהבה עצומה לבעלי חיים 🐶🐱🐰🐹🐦🐠🦜 .🐢🦎</p>
+                <p>כבר כמעט <strong>30</strong> שנה שאני מנהל באהבה ובמסירות את העסק שלי לבעלי חיים, ממשיך בדרכו של אבי,
+                    שמעון בן שושן ז״ל, שהחזיק מספר חנויות חיות מחמד משנות ה־<strong>70</strong> ועד אמצע שנות
+                    ה־<strong>90</strong> 🐾 🛒.</p>
+            </div>
+            <!-- Image removed per request -->
+        </div>
+
+    </div>
+
+    <footer>
         <p>© 2025 ציפורים בראש - כל הזכויות שמורות.</p>
+        <p>בנייה ועיצוב: SultanaMedia</p>
     </footer>
 
     <script src="script.js"></script>
