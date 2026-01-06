@@ -81,19 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Newsletter form submission
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = newsletterForm.querySelector('.newsletter-input').value;
-            if (email) {
-                alert('תודה על ההרשמה! נשלח אליך עדכונים על חדשות, טיפים ומידע מעניין על בעלי חיים.');
-                newsletterForm.querySelector('.newsletter-input').value = '';
-            }
-        });
-    }
-
     // Details buttons - scroll to contact section
     const detailsButtons = document.querySelectorAll('.btn-details');
     detailsButtons.forEach(btn => {

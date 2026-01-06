@@ -841,7 +841,7 @@ header.sticky-header {
     margin: 0 auto;
     padding: var(--spacing-xl) var(--spacing-md);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
 }
 
