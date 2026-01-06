@@ -109,4 +109,58 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Carousel scroll hint - hide when scrolling
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const carouselHint = document.querySelector('.carousel-scroll-hint');
+    const carouselFade = document.querySelector('.carousel-fade-left');
+    
+    if (carouselWrapper && carouselHint && carouselFade) {
+        const updateHintVisibility = () => {
+            const scrollLeft = carouselWrapper.scrollLeft;
+            const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.clientWidth;
+            const canScroll = maxScroll > 10; // Check if there's content to scroll
+            
+            if (!canScroll) {
+                // No scrolling needed, hide hint and fade
+                carouselHint.style.display = 'none';
+                carouselFade.style.display = 'none';
+                return;
+            }
+            
+            carouselHint.style.display = 'flex';
+            carouselFade.style.display = 'block';
+            
+            // Hide hint if scrolled significantly
+            if (scrollLeft > 50) {
+                carouselHint.style.opacity = '0';
+            } else {
+                carouselHint.style.opacity = '0.9';
+            }
+            
+            // Update fade effect - show on right if can scroll right
+            if (scrollLeft < maxScroll - 10) {
+                carouselFade.style.opacity = '1';
+            } else {
+                carouselFade.style.opacity = '0';
+            }
+        };
+        
+        carouselWrapper.addEventListener('scroll', updateHintVisibility);
+        
+        // Check on resize
+        window.addEventListener('resize', () => {
+            setTimeout(updateHintVisibility, 100);
+        });
+        
+        // Initial check
+        setTimeout(updateHintVisibility, 100);
+        
+        // Hide hint after 5 seconds if not scrolled (but keep fade)
+        setTimeout(() => {
+            if (carouselWrapper.scrollLeft < 50 && carouselWrapper.scrollWidth > carouselWrapper.clientWidth) {
+                carouselHint.style.opacity = '0.7';
+            }
+        }, 5000);
+    }
 });

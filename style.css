@@ -121,11 +121,17 @@ header.sticky-header {
 }
 
 /* ימין: לוגו + המבורגר */
-.header-left {
+    .header-left {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
     min-width: 200px;
+}
+
+@media(max-width: 600px) {
+    .header-left {
+        min-width: auto;
+    }
 }
 
 .hamburger-btn {
@@ -392,9 +398,9 @@ header.sticky-header {
 .hero-carousel {
     position: relative;
     width: 100%;
-    height: 70vh;
-    min-height: 500px;
-    max-height: 800px;
+    height: 90vh;
+    min-height: 700px;
+    max-height: 1200px;
     background: #000;
     overflow: hidden;
     margin-bottom: var(--spacing-xl);
@@ -427,6 +433,7 @@ header.sticky-header {
     color: #fff;
     z-index: 10;
     max-width: 500px;
+    display: none;
 }
 
 .hero-title {
@@ -662,13 +669,87 @@ header.sticky-header {
    GALLERY CAROUSEL
    ============================================ */
 
+.carousel-container {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+}
+
 .carousel-wrapper {
     overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 0;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    margin-bottom: var(--spacing-xl);
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--bg-secondary);
+}
+
+.carousel-scroll-hint {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+    pointer-events: none;
+    animation: pulse-hint 2s ease-in-out infinite;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-scroll-hint i {
+    font-size: 1rem;
+    animation: slide-left 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-hint {
+    0%, 100% {
+        opacity: 0.9;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+@keyframes slide-left {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+}
+
+.carousel-fade-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(248, 249, 250, 0.95), transparent);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.carousel-container:hover .carousel-scroll-hint {
+    opacity: 0.7;
+}
+
+.carousel-wrapper:active .carousel-scroll-hint,
+.carousel-wrapper:focus .carousel-scroll-hint {
+    opacity: 0;
 }
 
 .carousel-wrapper::-webkit-scrollbar {
@@ -690,12 +771,18 @@ header.sticky-header {
     width: 320px;
     height: 280px;
     margin-left: var(--spacing-md);
+    margin-right: 0;
     border-radius: 12px;
     overflow: hidden;
     scroll-snap-align: center;
     box-shadow: var(--shadow-md);
     position: relative;
     border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.carousel-wrapper .carousel-slide:last-child {
+    margin-left: var(--spacing-md);
 }
 
 .carousel-slide img,
@@ -923,9 +1010,9 @@ header.sticky-header {
     }
 
     .hero-carousel {
-        height: 50vh;
-        min-height: 400px;
-        max-height: 600px;
+        height: 70vh;
+        min-height: 600px;
+        max-height: 900px;
     }
 
     .hero-content {
@@ -984,13 +1071,33 @@ header.sticky-header {
         flex-direction: column;
         text-align: center;
     }
+
+    .carousel-slide {
+        width: 280px;
+        height: 250px;
+        margin-left: var(--spacing-sm);
+    }
+
+    .carousel-wrapper {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .carousel-scroll-hint {
+        left: 10px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .carousel-fade-left {
+        width: 60px;
+    }
 }
 
 @media(max-width: 600px) {
     .hero-carousel {
-        height: 40vh;
-        min-height: 300px;
-        max-height: 500px;
+        height: 60vh;
+        min-height: 500px;
+        max-height: 700px;
     }
 
     .hero-content {
@@ -1039,5 +1146,81 @@ header.sticky-header {
 
     .product-img-wrapper {
         height: 200px;
+    }
+
+    .carousel-slide {
+        width: 250px;
+        height: 220px;
+        margin-left: var(--spacing-sm);
+    }
+
+    .carousel-wrapper {
+        padding: var(--spacing-sm) 0;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .carousel-scroll-hint {
+        left: 5px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        gap: 6px;
+    }
+
+    .carousel-scroll-hint span {
+        display: none;
+    }
+
+    .carousel-scroll-hint i {
+        font-size: 0.9rem;
+    }
+
+    .carousel-fade-left {
+        width: 40px;
+    }
+
+    .section-head {
+        padding-top: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .section-head h2 {
+        font-size: 1.5rem;
+    }
+
+    .main-container {
+        padding: 0 var(--spacing-sm) var(--spacing-md);
+    }
+
+    .header-top-strip {
+        font-size: 0.75rem;
+        padding: 6px 0;
+    }
+
+    .top-strip-inner {
+        padding: 0 var(--spacing-sm);
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+
+    .header-main {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .header-main-inner {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .search-input {
+        padding: 12px 45px 12px 18px;
+        font-size: 0.9rem;
+    }
+
+    .search-btn {
+        width: 38px;
+        height: 38px;
     }
 }
