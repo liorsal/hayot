@@ -32,6 +32,38 @@
     --spacing-xl: 64px;
 }
 
+/* Dark Mode */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-dark: #ffffff;
+    --text-medium: #e0e0e0;
+    --text-light: #b0b0b0;
+    --footer-bg: #0f0f0f;
+    --border-color: #404040;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode icon will be handled by JavaScript */
+
+html[data-theme="dark"] .search-input {
+    background: var(--bg-secondary);
+    color: #ffffff;
+    border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .search-input::placeholder {
+    color: var(--text-light);
+}
+
+html[data-theme="dark"] .search-input:focus {
+    background: var(--bg-primary);
+    color: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +75,7 @@ html {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -56,6 +89,7 @@ body {
     width: 100%;
     max-width: 100vw;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -198,13 +232,19 @@ header.sticky-header {
     font-family: var(--font-main);
     font-size: 1rem;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
     background: var(--bg-secondary);
+    color: var(--text-dark);
+}
+
+.search-input::placeholder {
+    color: var(--text-light);
 }
 
 .search-input:focus {
     border-color: var(--accent);
     background: var(--bg-primary);
+    color: var(--text-dark);
 }
 
 .search-btn {
@@ -246,6 +286,18 @@ header.sticky-header {
     color: var(--text-medium);
     transition: color 0.3s;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+}
+
+.dark-mode-toggle {
+    cursor: pointer;
+}
+
+.dark-mode-toggle:hover {
+    color: var(--accent);
 }
 
 .header-icon-btn i {
@@ -1286,25 +1338,19 @@ header.sticky-header {
     }
 
     .search-bar-container {
-        order: 3;
-        min-width: 100%;
-        max-width: 100%;
-        margin: var(--spacing-xs) 0 0 0;
+        display: none; /* הסתרת שורת החיפוש במובייל */
     }
 
-    .search-input {
-        padding: 10px 40px 10px 15px;
-        font-size: 0.85rem;
-        width: 100%;
-    }
-
-    .search-btn {
-        width: 34px;
-        height: 34px;
+    .header-icon-btn {
+        padding: 5px;
     }
 
     .header-icon-btn i {
         font-size: 1.2rem;
+    }
+
+    .icon-label {
+        display: none; /* הסתרת התוויות במובייל */
     }
 
     .quick-categories {

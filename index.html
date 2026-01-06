@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -35,12 +35,16 @@
 
                 <!-- אמצע: שורת חיפוש ענקית -->
                 <div class="search-bar-container">
-                    <input type="text" class="search-input" placeholder="חפש מוצר, מותג או קטגוריה...">
-                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <input type="text" class="search-input" id="search-input" placeholder="חפש מוצר, מותג או קטגוריה...">
+                    <button class="search-btn" id="search-btn"><i class="fas fa-search"></i></button>
                 </div>
 
-                <!-- שמאל: צור קשר -->
+                <!-- שמאל: צור קשר + מצב כהה -->
                 <div class="header-right">
+                    <button class="header-icon-btn dark-mode-toggle" id="dark-mode-toggle" title="מצב כהה">
+                        <i class="fas fa-moon"></i>
+                        <span class="icon-label">מצב כהה</span>
+                    </button>
                     <a href="#contact" class="header-icon-btn">
                         <i class="fas fa-phone"></i>
                         <span class="icon-label">צור קשר</span>

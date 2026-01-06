@@ -185,4 +185,128 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 5000);
     }
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    let currentTheme = localStorage.getItem('theme');
+    if (!currentTheme || currentTheme !== 'dark') {
+        currentTheme = 'light';
+        localStorage.setItem('theme', 'light');
+    }
+    htmlElement.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    const updateDarkModeIcon = () => {
+        if (darkModeToggle) {
+            const icon = darkModeToggle.querySelector('i');
+            if (icon) {
+                if (htmlElement.getAttribute('data-theme') === 'dark') {
+                    icon.className = 'fas fa-sun';
+                } else {
+                    icon.className = 'fas fa-moon';
+                }
+            }
+        }
+    };
+    
+    updateDarkModeIcon();
+    
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const currentTheme = htmlElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateDarkModeIcon();
+            // Force reflow to ensure theme applies
+            document.body.offsetHeight;
+        });
+    }
+
+    // Search functionality
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    
+    const performSearch = () => {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        
+        if (!searchTerm) {
+            alert('אנא הכנס מונח חיפוש');
+            return;
+        }
+        
+        // Scroll to products section
+        const productsSection = document.getElementById('products');
+        if (productsSection) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = productsSection.offsetTop - headerHeight;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Highlight matching products (simple search)
+            const productTitles = document.querySelectorAll('.product-title');
+            let found = false;
+            let firstFound = true;
+            
+            productTitles.forEach(title => {
+                const productText = title.textContent.toLowerCase();
+                const productCard = title.closest('.product-card');
+                
+                if (productText.includes(searchTerm)) {
+                    productCard.style.border = '2px solid var(--accent)';
+                    productCard.style.boxShadow = '0 0 15px rgba(36, 167, 93, 0.3)';
+                    found = true;
+                    
+                    // Scroll to first found product
+                    if (firstFound) {
+                        setTimeout(() => {
+                            productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 500);
+                        firstFound = false;
+                    }
+                } else {
+                    productCard.style.opacity = '0.5';
+                    productCard.style.border = '';
+                    productCard.style.boxShadow = '';
+                }
+            });
+            
+            // Reset after 5 seconds
+            setTimeout(() => {
+                productTitles.forEach(title => {
+                    const productCard = title.closest('.product-card');
+                    productCard.style.opacity = '';
+                    productCard.style.border = '';
+                    productCard.style.boxShadow = '';
+                });
+            }, 5000);
+            
+            if (!found) {
+                alert('לא נמצאו תוצאות עבור "' + searchInput.value + '"');
+            }
+        }
+    };
+    
+    if (searchBtn) {
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            performSearch();
+        });
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+    }
 });
