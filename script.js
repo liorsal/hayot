@@ -1,4 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Video autoplay fix for mobile
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+        // Try to play the video
+        const playPromise = heroVideo.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                // Autoplay was prevented, try to play on user interaction
+                console.log('Autoplay prevented, waiting for user interaction');
+                
+                // Try to play on first user interaction
+                const playVideo = () => {
+                    heroVideo.play().catch(err => console.log('Video play failed:', err));
+                    document.removeEventListener('touchstart', playVideo);
+                    document.removeEventListener('click', playVideo);
+                };
+                
+                document.addEventListener('touchstart', playVideo, { once: true });
+                document.addEventListener('click', playVideo, { once: true });
+            });
+        }
+        
+        // Ensure video plays when it becomes visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroVideo.play().catch(err => console.log('Video play failed:', err));
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(heroVideo);
+    }
+
     // Mobile Menu Logic
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const closeMenuBtn = document.getElementById('close-menu');
