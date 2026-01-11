@@ -8,24 +8,40 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:url" content="">
     <meta property="og:title" content="ציפורים בראש - חנות החיות שלך">
     <meta property="og:description" content="חנות חיות מחמד משפחתית עם ניסיון של כמעט 30 שנה. ציוד, מזון ואהבה לחיות מחמד - הכל במקום אחד">
-    <meta property="og:image" content="https://your-domain.com/og-image.png">
+    <meta property="og:image" content="">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
     <meta property="og:locale" content="he_IL">
+    <meta property="og:site_name" content="ציפורים בראש">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://your-domain.com/">
     <meta name="twitter:title" content="ציפורים בראש - חנות החיות שלך">
     <meta name="twitter:description" content="חנות חיות מחמד משפחתית עם ניסיון של כמעט 30 שנה. ציוד, מזון ואהבה לחיות מחמד - הכל במקום אחד">
-    <meta name="twitter:image" content="https://your-domain.com/og-image.png">
+    <meta name="twitter:image" content="">
     
     <!-- WhatsApp -->
-    <meta property="og:image:secure_url" content="https://your-domain.com/og-image.png">
+    <meta property="og:image:secure_url" content="">
+    
+    <script>
+        // Set Open Graph URLs dynamically based on current domain
+        (function() {
+            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '');
+            const imageUrl = baseUrl + '/og-image.png';
+            const pageUrl = baseUrl + '/';
+            
+            // Update all og:image and og:url meta tags
+            document.querySelector('meta[property="og:image"]').setAttribute('content', imageUrl);
+            document.querySelector('meta[property="og:url"]').setAttribute('content', pageUrl);
+            document.querySelector('meta[property="og:image:secure_url"]').setAttribute('content', imageUrl);
+            document.querySelector('meta[name="twitter:image"]').setAttribute('content', imageUrl);
+            document.querySelector('meta[name="twitter:url"]').setAttribute('content', pageUrl);
+        })();
+    </script>
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
