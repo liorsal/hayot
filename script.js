@@ -196,4 +196,36 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Prevent scroll on first load if needed
     window.scrollTo(0, 0);
+    
+    // Discount Popup - Show after 5 seconds
+    const discountPopup = document.getElementById('discount-popup');
+    const closePopupBtn = document.getElementById('close-popup-btn');
+    
+    if (discountPopup && closePopupBtn) {
+        // Check if popup was already closed in this session
+        const popupClosed = sessionStorage.getItem('discountPopupClosed');
+        
+        if (!popupClosed) {
+            // Show popup after 5 seconds
+            setTimeout(() => {
+                discountPopup.classList.add('show');
+            }, 5000);
+        }
+        
+        // Close popup when clicking X button
+        closePopupBtn.addEventListener('click', () => {
+            discountPopup.classList.remove('show');
+            discountPopup.classList.add('hidden');
+            sessionStorage.setItem('discountPopupClosed', 'true');
+        });
+        
+        // Close popup when clicking outside (optional)
+        discountPopup.addEventListener('click', (e) => {
+            if (e.target === discountPopup) {
+                discountPopup.classList.remove('show');
+                discountPopup.classList.add('hidden');
+                sessionStorage.setItem('discountPopupClosed', 'true');
+            }
+        });
+    }
 });

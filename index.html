@@ -5,6 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>ציפורים בראש - חנות החיות שלך</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="ציפורים בראש - חנות החיות שלך">
+    <meta property="og:description" content="חנות חיות מחמד משפחתית עם ניסיון של כמעט 30 שנה. ציוד, מזון ואהבה לחיות מחמד - הכל במקום אחד">
+    <meta property="og:image" content="https://your-domain.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:locale" content="he_IL">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://your-domain.com/">
+    <meta name="twitter:title" content="ציפורים בראש - חנות החיות שלך">
+    <meta name="twitter:description" content="חנות חיות מחמד משפחתית עם ניסיון של כמעט 30 שנה. ציוד, מזון ואהבה לחיות מחמד - הכל במקום אחד">
+    <meta name="twitter:image" content="https://your-domain.com/og-image.png">
+    
+    <!-- WhatsApp -->
+    <meta property="og:image:secure_url" content="https://your-domain.com/og-image.png">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -160,6 +182,30 @@
             </div>
         </div>
     </section>
+
+    <!-- Floating Call Button -->
+    <a href="tel:0526109617" class="floating-call-btn" id="floating-call-btn" title="התקשר: 052-610-9617">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- Discount Popup -->
+    <div class="discount-popup" id="discount-popup">
+        <button class="close-popup-btn" id="close-popup-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="popup-content">
+            <div class="popup-icon">
+                <i class="fas fa-tags"></i>
+            </div>
+            <h2 class="popup-title">מבצע מיוחד!</h2>
+            <p class="popup-discount">10% הנחה</p>
+            <p class="popup-text">על כל הקניות בחנות</p>
+            <a href="tel:0526109617" class="popup-call-btn">
+                <i class="fas fa-phone"></i>
+                התקשר עכשיו
+            </a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
