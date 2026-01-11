@@ -114,34 +114,7 @@ img {
     z-index: 1;
 }
 
-/* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--accent);
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.scroll-indicator:hover {
-    color: var(--accent-hover);
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
-}
+/* Scroll Indicator - Removed */
 
 /* Navigation Dots */
 .scroll-nav {
@@ -208,6 +181,49 @@ img {
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
+/* Colorful Title */
+.colorful-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.colorful-title .letter {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    animation: letterBounce 2s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+.colorful-title .letter:hover {
+    transform: scale(1.2) translateY(-5px);
+}
+
+@keyframes letterBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media(max-width: 900px) {
+    .colorful-title {
+        font-size: 3rem;
+    }
+}
+
+@media(max-width: 600px) {
+    .colorful-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
 .video-container {
     display: flex;
     justify-content: center;
@@ -264,6 +280,23 @@ img {
     max-width: 900px;
     width: 100%;
     border-top: 5px solid var(--accent);
+    margin-bottom: var(--spacing-xl);
+}
+
+.animation-video-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: var(--spacing-xl);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.animation-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
 }
 
 .owner-text h2 {
@@ -602,15 +635,6 @@ img {
         min-height: 400px;
     }
     
-    .scroll-indicator {
-        font-size: 1.5rem;
-        bottom: 20px;
-    }
-}
-
-/* Hide scroll indicator on last section */
-#section-4 .scroll-indicator {
-    display: none;
 }
 
 /* ============================================

@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll to sections
     const sections = document.querySelectorAll('.fullpage-section');
     const navDots = document.querySelectorAll('.nav-dot');
-    const scrollIndicators = document.querySelectorAll('.scroll-indicator');
     
     // Update active nav dot based on scroll position
     const updateActiveNav = () => {
@@ -86,15 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Scroll to next section when clicking scroll indicator
-    scrollIndicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            if (index < sections.length - 1) {
-                sections[index + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-    
     // Update nav on scroll
     let scrollTimeout;
     window.addEventListener('scroll', () => {
@@ -105,69 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial update
     updateActiveNav();
     
-    // Keyboard navigation (arrow keys)
-    let isScrolling = false;
-    window.addEventListener('keydown', (e) => {
-        if (isScrolling) return;
-        
-        const currentIndex = Array.from(sections).findIndex(section => {
-            const rect = section.getBoundingClientRect();
-            return rect.top >= 0 && rect.top < window.innerHeight / 2;
-        });
-        
-        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-            e.preventDefault();
-            if (currentIndex < sections.length - 1) {
-                isScrolling = true;
-                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => { isScrolling = false; }, 1000);
-            }
-        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-            e.preventDefault();
-            if (currentIndex > 0) {
-                isScrolling = true;
-                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => { isScrolling = false; }, 1000);
-            }
-        }
-    });
-    
-    // Touch/swipe support for mobile
-    let touchStartY = 0;
-    let touchEndY = 0;
-    
-    document.addEventListener('touchstart', (e) => {
-        touchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
-    
-    document.addEventListener('touchend', (e) => {
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipe();
-    }, { passive: true });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartY - touchEndY;
-        
-        if (Math.abs(diff) > swipeThreshold && !isScrolling) {
-            const currentIndex = Array.from(sections).findIndex(section => {
-                const rect = section.getBoundingClientRect();
-                return rect.top >= 0 && rect.top < window.innerHeight / 2;
-            });
-            
-            if (diff > 0 && currentIndex < sections.length - 1) {
-                // Swipe up - next section
-                isScrolling = true;
-                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => { isScrolling = false; }, 1000);
-            } else if (diff < 0 && currentIndex > 0) {
-                // Swipe down - previous section
-                isScrolling = true;
-                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => { isScrolling = false; }, 1000);
-            }
-        }
-    }
+    // Disable automatic scroll jumping - let user scroll naturally
+    // Remove keyboard and swipe navigation that causes jumping
     
     // Intersection Observer for animations
     const observerOptions = {
@@ -194,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Prevent scroll on first load if needed
-    window.scrollTo(0, 0);
+    // Prevent scroll on first load if needed - but don't force it
+    // window.scrollTo(0, 0);
     
     // Discount Popup - Show after 5 seconds
     const discountPopup = document.getElementById('discount-popup');
