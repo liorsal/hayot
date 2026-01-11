@@ -10,308 +10,156 @@
 </head>
 
 <body>
+    <!-- Navigation Dots -->
+    <nav class="scroll-nav">
+        <a href="#section-1" class="nav-dot active" data-section="1"></a>
+        <a href="#section-2" class="nav-dot" data-section="2"></a>
+        <a href="#section-3" class="nav-dot" data-section="3"></a>
+        <a href="#section-4" class="nav-dot" data-section="4"></a>
+    </nav>
 
-    <!-- 1. Header System - Sticky Professional E-commerce Layout -->
-    <header class="sticky-header">
-        <!-- קומה עליונה - Top Bar -->
-        <div class="header-top-strip">
-            <div class="top-strip-inner">
-                <div><i class="fas fa-phone"></i> שירות לקוחות: 052-6109617</div>
-                <div><i class="fas fa-map-marker-alt"></i> כיכר צהל , קרית שמונה</div>
-                <div><i class="far fa-user"></i> שלום אורח</div>
+    <!-- Section 1: Video -->
+    <section id="section-1" class="fullpage-section video-section">
+        <div class="section-content">
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1196975872399348%2F&show_text=false&width=269&t=0&autoplay=true&muted=false" 
+                        style="border:none;overflow:hidden;width:100%;height:100%;" 
+                        scrolling="no" 
+                        frameborder="0" 
+                        allowfullscreen="true" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; autoplay" 
+                        allowFullScreen="true"
+                        loading="eager">
+                </iframe>
             </div>
         </div>
-
-        <!-- קומה אמצעית - Main Header -->
-        <div class="header-main">
-            <div class="header-main-inner">
-                <!-- ימין: לוגו + המבורגר -->
-                <div class="header-left">
-                    <button class="hamburger-btn" id="hamburger-btn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <a href="#top" class="logo">ציפורים בראש</a>
-                </div>
-
-                <!-- אמצע: שורת חיפוש ענקית -->
-                <div class="search-bar-container">
-                    <input type="text" class="search-input" id="search-input" placeholder="חפש מוצר, מותג או קטגוריה...">
-                    <button class="search-btn" id="search-btn"><i class="fas fa-search"></i></button>
-                </div>
-
-                <!-- שמאל: צור קשר + מצב כהה -->
-                <div class="header-right">
-                    <button class="header-icon-btn dark-mode-toggle" id="dark-mode-toggle" title="מצב כהה">
-                        <i class="fas fa-moon"></i>
-                        <span class="icon-label">מצב כהה</span>
-                    </button>
-                    <a href="#contact" class="header-icon-btn">
-                        <i class="fas fa-phone"></i>
-                        <span class="icon-label">צור קשר</span>
-                    </a>
-                    <a href="#about" class="header-icon-btn">
-                        <i class="far fa-user"></i>
-                        <span class="icon-label">אודות</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- קומה תחתונה - Navigation Menu -->
-        <nav class="header-nav">
-            <div class="nav-inner">
-                <a href="#products" class="nav-link">מוצרים נבחרים</a>
-                <a href="#gallery" class="nav-link">גלריה</a>
-                <a href="#about" class="nav-link">אודות</a>
-                <a href="#contact" class="nav-link">צור קשר</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="menu-overlay" id="menu-overlay"></div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-header">
-            <a href="#" class="logo">ציפורים בראש</a>
-            <button class="close-menu-btn" id="close-menu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <nav class="mobile-nav">
-            <a href="#" class="mobile-nav-link">בית</a>
-            <a href="#gallery" class="mobile-nav-link">גלריה</a>
-            <a href="#products" class="mobile-nav-link">מוצרים נבחרים</a>
-            <a href="#about" class="mobile-nav-link">אודות</a>
-            <a href="#contact" class="mobile-nav-link">צור קשר</a>
-        </nav>
-        <div class="mobile-menu-footer">
-            <div class="mobile-contact-info">
-                <p><i class="fas fa-phone"></i> שירות לקוחות: 052-6109617</p>
-                <p><i class="fas fa-map-marker-alt"></i> כיכר צהל, קרית שמונה</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Hero Section - Carousel/Slider -->
-    <section class="hero-carousel">
-        <div class="hero-slide active">
-            <video autoplay muted loop playsinline preload="auto" class="hero-bg-media" id="hero-video">
-                <source src="./assets/animation.mp4" type="video/mp4">
-            </video>
-            <div class="hero-content">
-                <h1 class="hero-title">ברוכים הבאים למשפחה</h1>
-                <p class="hero-subtitle">ציוד, מזון ואהבה לחיות מחמד - הכל במקום אחד</p>
-                <a href="#products" class="hero-cta-btn">גלה את המוצרים שלנו</a>
-            </div>
-        </div>
-        <!-- אפשר להוסיף עוד סליידים כאן -->
-    </section>
-
-    <!-- 3. Quick Categories - Visual Navigation -->
-    <section class="quick-categories">
-        <div class="categories-container">
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-dog"></i>
-                </div>
-                <span class="category-label">כלבים</span>
-            </a>
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-cat"></i>
-                </div>
-                <span class="category-label">חתולים</span>
-            </a>
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-dove"></i>
-                </div>
-                <span class="category-label">ציפורים</span>
-            </a>
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-fish"></i>
-                </div>
-                <span class="category-label">דגים</span>
-            </a>
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-bone"></i>
-                </div>
-                <span class="category-label">מזון</span>
-            </a>
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-couch"></i>
-                </div>
-                <span class="category-label">ציוד</span>
-            </a>
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-gift"></i>
-                </div>
-                <span class="category-label">צעצועים</span>
-            </a>
-            <a href="#products" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-tags"></i>
-                </div>
-                <span class="category-label">מבצעים</span>
-            </a>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <div class="main-container">
-
-        <!-- 3. Promotion/Gallery Carousel -->
-        <div class="section-head" id="gallery">
-            <h2>הגלריה שלנו</h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="carousel-container">
-            <div class="carousel-scroll-hint">
-                <span>גלול לראות עוד</span>
-                <i class="fas fa-chevron-left"></i>
-            </div>
-            <div class="carousel-fade-left"></div>
-            <div class="carousel-wrapper">
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.42.37 AM.jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM.jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (1).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.09 AM.jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM (2).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM (3).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM (4).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM.jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (1).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (2).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (3).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM.jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM (1).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM (2).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM (3).jpeg"></div>
-            <div class="carousel-slide"><img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.16 AM.jpeg"></div>
-            </div>
-        </div>
-
-        <!-- 4. Top Products (Grid) -->
-        <div class="section-head" id="products">
-            <h2>מוצרים נבחרים</h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="grid-products">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (3).jpeg" alt="Product">
+    <!-- Section 2: Owner Information -->
+    <section id="section-2" class="fullpage-section owner-section">
+        <div class="section-content">
+            <div class="owner-block">
+                <div class="owner-text">
+                    <h2>יריב בן שושן – זה אני 🙂</h2>
+                    <p>נולדתי וגדלתי בקריית שמונה, עיר שמלווה אותי כל חיי 🏔️ ❤️ . אני בוגר תיכון דנציגר בגאווה 🎓💙 – מקום
+                        שנתן לי בסיס חזק לערכים, עבודה קשה ואהבה למקום שבו גדלתי.</p>
+                    <p>מאז שאני ילד יש לי אהבה עצומה לבעלי חיים 🐶🐱🐰🐹🐦🐠🦜 .🐢🦎</p>
+                    <p>כבר כמעט <strong>30</strong> שנה שאני מנהל באהבה ובמסירות את העסק שלי לבעלי חיים, ממשיך בדרכו של אבי,
+                        שמעון בן שושן ז״ל, שהחזיק מספר חנויות חיות מחמד משנות ה־<strong>70</strong> ועד אמצע שנות
+                        ה־<strong>90</strong> 🐾 🛒.</p>
                 </div>
-                <h3 class="product-title">שימורי Monge Fresh לכלב בוגר - מגוון טעמים</h3>
-                <!-- Price removed -->
-                <button class="btn-details">פרטים נוספים</button>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.08 AM (2).jpeg" alt="Product">
-                </div>
-                <h3 class="product-title">זוג תוכים קאיק (Caique) - האכלת יד</h3>
-                <!-- Price removed -->
-                <button class="btn-details">פרטים נוספים</button>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.02 AM (2).jpeg" alt="Product">
-                </div>
-                <h3 class="product-title">רולר דיג מקצועי Sufix 2025</h3>
-                <!-- Price removed -->
-                <button class="btn-details">פרטים נוספים</button>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.43.55 AM.jpeg" alt="Product">
-                </div>
-                <h3 class="product-title">ארנבון ננסי שמוט אוזניים גזעי</h3>
-                <!-- Price removed -->
-                <button class="btn-details">פרטים נוספים</button>
-            </div>
-            <!-- Product 5 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.42.37 AM.jpeg" alt="Product">
-                </div>
-                <h3 class="product-title">כלוב תצוגה מקצועי מודולרי</h3>
-                <!-- Price removed -->
-                <button class="btn-details">פרטים נוספים</button>
-            </div>
-            <!-- Product 6 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="./new_assets/WhatsApp Image 2025-12-24 at 11.45.03 AM.jpeg" alt="Product">
-                </div>
-                <h3 class="product-title">צעצועי לעיסה לתוכים גדולים</h3>
-                <!-- Price removed -->
-                <button class="btn-details">פרטים נוספים</button>
             </div>
         </div>
-
-        <!-- 5. Owner Story -->
-        <div class="owner-block" id="about">
-            <div class="owner-text">
-                <h3>יריב בן שושן – זה אני 🙂</h3>
-                <p>נולדתי וגדלתי בקריית שמונה, עיר שמלווה אותי כל חיי 🏔️ ❤️ . אני בוגר תיכון דנציגר בגאווה 🎓💙 – מקום
-                    שנתן לי בסיס חזק לערכים, עבודה קשה ואהבה למקום שבו גדלתי.</p>
-                <p>מאז שאני ילד יש לי אהבה עצומה לבעלי חיים 🐶🐱🐰🐹🐦🐠🦜 .🐢🦎</p>
-                <p>כבר כמעט <strong>30</strong> שנה שאני מנהל באהבה ובמסירות את העסק שלי לבעלי חיים, ממשיך בדרכו של אבי,
-                    שמעון בן שושן ז״ל, שהחזיק מספר חנויות חיות מחמד משנות ה־<strong>70</strong> ועד אמצע שנות
-                    ה־<strong>90</strong> 🐾 🛒.</p>
-            </div>
-            <!-- Image removed per request -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
+    </section>
 
-    </div>
-
-    <!-- Footer - Professional E-commerce Style -->
-    <footer id="contact" class="main-footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3 class="footer-title">מי אנחנו</h3>
-                <p>חנות חיות מחמד משפחתית עם ניסיון של כמעט 30 שנה. אנו מתמחים בציוד, מזון ואהבה לחיות מחמד.</p>
-            </div>
-            <div class="footer-column">
-                <h3 class="footer-title">מידע נוסף</h3>
-                <ul class="footer-links">
-                    <li><a href="#about">אודות העסק</a></li>
-                    <li><a href="#gallery">גלריה</a></li>
-                    <li><a href="#products">מוצרים נבחרים</a></li>
-                    <li><a href="#contact">צור קשר</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3 class="footer-title">צור קשר</h3>
-                <ul class="footer-contact">
-                    <li><i class="fas fa-phone"></i> שירות לקוחות: 052-6109617</li>
-                    <li><i class="fas fa-map-marker-alt"></i> כיכר צהל, קרית שמונה</li>
-                </ul>
+    <!-- Section 3: Store Categories -->
+    <section id="section-3" class="fullpage-section categories-section">
+        <div class="section-content">
+            <h2 class="section-title">מחלקות החנות</h2>
+            <div class="categories-container">
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <span class="category-label">כלבים</span>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-cat"></i>
+                    </div>
+                    <span class="category-label">חתולים</span>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <span class="category-label">ציפורים</span>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <span class="category-label">דגים</span>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <span class="category-label">מזון</span>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <span class="category-label">ציוד</span>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <span class="category-label">צעצועים</span>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <span class="category-label">מבצעים</span>
+                </a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p>© 2025 ציפורים בראש - כל הזכויות שמורות.</p>
-                <p class="footer-credit">בנייה ועיצוב: SultanaMedia</p>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Section 4: Contact & Social Links -->
+    <section id="section-4" class="fullpage-section contact-section">
+        <div class="section-content">
+            <h2 class="section-title">בואו נפגש</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>052-6109617</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>כיכר צהל, קרית שמונה</span>
+                </div>
+            </div>
+            
+            <div class="links-container">
+                <h3 class="links-title">גשו אלינו</h3>
+                <div class="location-links">
+                    <a href="https://waze.com/ul?q=כיכר%20צהל,%20קרית%20שמונה" target="_blank" class="link-btn waze-btn">
+                        <i class="fab fa-waze"></i>
+                        <span>Waze</span>
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=כיכר+צהל+קרית+שמונה" target="_blank" class="link-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        <span>Google Maps</span>
+                    </a>
+                </div>
+                
+                <h3 class="links-title">עקבו אחרינו</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/yarivbs?igsh=MTNuMWVoOWUyNWlubA==" target="_blank" class="link-btn instagram-btn">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1AKoiiwtBb/" target="_blank" class="link-btn facebook-btn">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
     <script src="script.js"></script>
 </body>

@@ -1,312 +1,199 @@
+// Try to autoplay video immediately - run as early as possible
+(function() {
+    function initVideoAutoplay() {
+        const videoSection = document.getElementById('section-1');
+        const videoIframe = videoSection?.querySelector('iframe');
+        
+        if (videoIframe) {
+            // Ensure autoplay is in URL
+            const currentSrc = videoIframe.src;
+            if (!currentSrc.includes('autoplay=true')) {
+                videoIframe.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'autoplay=true';
+            }
+            
+            // Try multiple times to ensure it plays
+            const tryPlay = () => {
+                try {
+                    // Try to trigger play via postMessage
+                    videoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                } catch (e) {
+                    // Cross-origin restriction - this is expected
+                }
+            };
+            
+            // Try immediately
+            tryPlay();
+            
+            // Try when iframe loads
+            videoIframe.addEventListener('load', () => {
+                tryPlay();
+                // Try again after iframe fully loads
+                setTimeout(tryPlay, 100);
+                setTimeout(tryPlay, 500);
+            });
+            
+            // Try multiple times with delays
+            setTimeout(tryPlay, 100);
+            setTimeout(tryPlay, 300);
+            setTimeout(tryPlay, 500);
+            setTimeout(tryPlay, 1000);
+        }
+    }
+    
+    // Try immediately if DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVideoAutoplay);
+    } else {
+        initVideoAutoplay();
+    }
+    
+    // Also try on window load
+    window.addEventListener('load', initVideoAutoplay);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Video autoplay fix for mobile
-    const heroVideo = document.getElementById('hero-video');
-    if (heroVideo) {
-        // Try to play the video
-        const playPromise = heroVideo.play();
+    
+    // Smooth scroll to sections
+    const sections = document.querySelectorAll('.fullpage-section');
+    const navDots = document.querySelectorAll('.nav-dot');
+    const scrollIndicators = document.querySelectorAll('.scroll-indicator');
+    
+    // Update active nav dot based on scroll position
+    const updateActiveNav = () => {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
         
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                // Autoplay was prevented, try to play on user interaction
-                console.log('Autoplay prevented, waiting for user interaction');
-                
-                // Try to play on first user interaction
-                const playVideo = () => {
-                    heroVideo.play().catch(err => console.log('Video play failed:', err));
-                    document.removeEventListener('touchstart', playVideo);
-                    document.removeEventListener('click', playVideo);
-                };
-                
-                document.addEventListener('touchstart', playVideo, { once: true });
-                document.addEventListener('click', playVideo, { once: true });
-            });
-        }
-        
-        // Ensure video plays when it becomes visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    heroVideo.play().catch(err => console.log('Video play failed:', err));
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                navDots.forEach(dot => dot.classList.remove('active'));
+                if (navDots[index]) {
+                    navDots[index].classList.add('active');
                 }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(heroVideo);
-    }
-
-    // Mobile Menu Logic
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const closeMenuBtn = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuOverlay = document.getElementById('menu-overlay');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-    const toggleMenu = (show) => {
-        if (show) {
-            mobileMenu.classList.add('active');
-            menuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        } else {
-            mobileMenu.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+            }
+        });
     };
-
-    if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', () => toggleMenu(true));
-    }
-
-    if (closeMenuBtn) {
-        closeMenuBtn.addEventListener('click', () => toggleMenu(false));
-    }
-
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', () => toggleMenu(false));
-    }
-
-    // Close menu when clicking on nav links
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    toggleMenu(false);
-                    setTimeout(() => {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 300);
-                }
-            } else {
-                toggleMenu(false);
+    
+    // Scroll to section when clicking nav dot
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetSection = sections[index];
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
-
-    // Header Shadow on Scroll
-    const header = document.querySelector('header');
+    
+    // Scroll to next section when clicking scroll indicator
+    scrollIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            if (index < sections.length - 1) {
+                sections[index + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    // Update nav on scroll
+    let scrollTimeout;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-        } else {
-            header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.05)';
-        }
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveNav, 100);
     });
-
-    // Smooth scroll for navigation links
-    const navLinks = document.querySelectorAll('.nav-link, .hero-cta-btn, .category-item');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    const headerHeight = header.offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-
-    // Details buttons - scroll to contact section
-    const detailsButtons = document.querySelectorAll('.btn-details');
-    detailsButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = contactSection.offsetTop - headerHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Carousel scroll hint - hide when scrolling
-    const carouselWrapper = document.querySelector('.carousel-wrapper');
-    const carouselHint = document.querySelector('.carousel-scroll-hint');
-    const carouselFade = document.querySelector('.carousel-fade-left');
     
-    if (carouselWrapper && carouselHint && carouselFade) {
-        const updateHintVisibility = () => {
-            const scrollLeft = carouselWrapper.scrollLeft;
-            const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.clientWidth;
-            const canScroll = maxScroll > 10; // Check if there's content to scroll
-            
-            if (!canScroll) {
-                // No scrolling needed, hide hint and fade
-                carouselHint.style.display = 'none';
-                carouselFade.style.display = 'none';
-                return;
-            }
-            
-            carouselHint.style.display = 'flex';
-            carouselFade.style.display = 'block';
-            
-            // Hide hint if scrolled significantly
-            if (scrollLeft > 50) {
-                carouselHint.style.opacity = '0';
-            } else {
-                carouselHint.style.opacity = '0.9';
-            }
-            
-            // Update fade effect - show on right if can scroll right
-            if (scrollLeft < maxScroll - 10) {
-                carouselFade.style.opacity = '1';
-            } else {
-                carouselFade.style.opacity = '0';
-            }
-        };
+    // Initial update
+    updateActiveNav();
+    
+    // Keyboard navigation (arrow keys)
+    let isScrolling = false;
+    window.addEventListener('keydown', (e) => {
+        if (isScrolling) return;
         
-        carouselWrapper.addEventListener('scroll', updateHintVisibility);
-        
-        // Check on resize
-        window.addEventListener('resize', () => {
-            setTimeout(updateHintVisibility, 100);
+        const currentIndex = Array.from(sections).findIndex(section => {
+            const rect = section.getBoundingClientRect();
+            return rect.top >= 0 && rect.top < window.innerHeight / 2;
         });
         
-        // Initial check
-        setTimeout(updateHintVisibility, 100);
-        
-        // Hide hint after 5 seconds if not scrolled (but keep fade)
-        setTimeout(() => {
-            if (carouselWrapper.scrollLeft < 50 && carouselWrapper.scrollWidth > carouselWrapper.clientWidth) {
-                carouselHint.style.opacity = '0.7';
-            }
-        }, 5000);
-    }
-
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const htmlElement = document.documentElement;
-    
-    // Check for saved theme preference or default to light mode
-    let currentTheme = localStorage.getItem('theme');
-    if (!currentTheme || currentTheme !== 'dark') {
-        currentTheme = 'light';
-        localStorage.setItem('theme', 'light');
-    }
-    htmlElement.setAttribute('data-theme', currentTheme);
-    
-    // Update icon based on current theme
-    const updateDarkModeIcon = () => {
-        if (darkModeToggle) {
-            const icon = darkModeToggle.querySelector('i');
-            if (icon) {
-                if (htmlElement.getAttribute('data-theme') === 'dark') {
-                    icon.className = 'fas fa-sun';
-                } else {
-                    icon.className = 'fas fa-moon';
-                }
-            }
-        }
-    };
-    
-    updateDarkModeIcon();
-    
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
             e.preventDefault();
-            e.stopPropagation();
-            const currentTheme = htmlElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateDarkModeIcon();
-            // Force reflow to ensure theme applies
-            document.body.offsetHeight;
-        });
-    }
-
-    // Search functionality
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
-    
-    const performSearch = () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        
-        if (!searchTerm) {
-            alert('אנא הכנס מונח חיפוש');
-            return;
+            if (currentIndex < sections.length - 1) {
+                isScrolling = true;
+                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => { isScrolling = false; }, 1000);
+            }
+        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            if (currentIndex > 0) {
+                isScrolling = true;
+                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => { isScrolling = false; }, 1000);
+            }
         }
+    });
+    
+    // Touch/swipe support for mobile
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartY - touchEndY;
         
-        // Scroll to products section
-        const productsSection = document.getElementById('products');
-        if (productsSection) {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = productsSection.offsetTop - headerHeight;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+        if (Math.abs(diff) > swipeThreshold && !isScrolling) {
+            const currentIndex = Array.from(sections).findIndex(section => {
+                const rect = section.getBoundingClientRect();
+                return rect.top >= 0 && rect.top < window.innerHeight / 2;
             });
             
-            // Highlight matching products (simple search)
-            const productTitles = document.querySelectorAll('.product-title');
-            let found = false;
-            let firstFound = true;
-            
-            productTitles.forEach(title => {
-                const productText = title.textContent.toLowerCase();
-                const productCard = title.closest('.product-card');
-                
-                if (productText.includes(searchTerm)) {
-                    productCard.style.border = '2px solid var(--accent)';
-                    productCard.style.boxShadow = '0 0 15px rgba(36, 167, 93, 0.3)';
-                    found = true;
-                    
-                    // Scroll to first found product
-                    if (firstFound) {
-                        setTimeout(() => {
-                            productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }, 500);
-                        firstFound = false;
-                    }
-                } else {
-                    productCard.style.opacity = '0.5';
-                    productCard.style.border = '';
-                    productCard.style.boxShadow = '';
-                }
-            });
-            
-            // Reset after 5 seconds
-            setTimeout(() => {
-                productTitles.forEach(title => {
-                    const productCard = title.closest('.product-card');
-                    productCard.style.opacity = '';
-                    productCard.style.border = '';
-                    productCard.style.boxShadow = '';
-                });
-            }, 5000);
-            
-            if (!found) {
-                alert('לא נמצאו תוצאות עבור "' + searchInput.value + '"');
+            if (diff > 0 && currentIndex < sections.length - 1) {
+                // Swipe up - next section
+                isScrolling = true;
+                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => { isScrolling = false; }, 1000);
+            } else if (diff < 0 && currentIndex > 0) {
+                // Swipe down - previous section
+                isScrolling = true;
+                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => { isScrolling = false; }, 1000);
             }
         }
+    }
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px'
     };
     
-    if (searchBtn) {
-        searchBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            performSearch();
-        });
-    }
-    
-    if (searchInput) {
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                performSearch();
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
-    }
+    }, observerOptions);
+    
+    // Observe sections for fade-in animation
+    sections.forEach((section, index) => {
+        if (index > 0) {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        }
+    });
+    
+    // Prevent scroll on first load if needed
+    window.scrollTo(0, 0);
 });
