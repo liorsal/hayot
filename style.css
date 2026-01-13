@@ -183,7 +183,7 @@ img {
 
 /* Colorful Title */
 .colorful-title {
-    font-size: 4rem;
+    font-size: 8rem;
     font-weight: 800;
     margin-bottom: var(--spacing-xl);
     text-align: center;
@@ -213,13 +213,13 @@ img {
 
 @media(max-width: 900px) {
     .colorful-title {
-        font-size: 3rem;
+        font-size: 5rem;
     }
 }
 
 @media(max-width: 600px) {
     .colorful-title {
-        font-size: 2rem;
+        font-size: 3.5rem;
         margin-bottom: var(--spacing-md);
     }
 }
@@ -519,6 +519,176 @@ img {
     background: #166FE5;
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   SECTION 4: OPENING HOURS
+   ============================================ */
+
+.hours-section {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--accent-light) 100%);
+}
+
+.colorful-title-hours {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.colorful-title-hours .letter {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    animation: letterBounce 2s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+.colorful-title-hours .letter:hover {
+    transform: scale(1.2) translateY(-5px);
+}
+
+.hours-block {
+    background: var(--bg-primary);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-xl);
+    max-width: 800px;
+    width: 100%;
+    border-top: 5px solid var(--accent);
+}
+
+.hours-title {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.hours-title i {
+    font-size: 2rem;
+}
+
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.hours-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.hours-item:hover {
+    background: var(--accent-light);
+    transform: translateX(-5px);
+}
+
+.hours-item .day {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.hours-item .time {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.hours-item .time.closed {
+    color: #ff6b6b;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--border-color);
+}
+
+.contact-detail-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.contact-detail-item i {
+    color: var(--accent);
+    font-size: 1.5rem;
+    width: 30px;
+}
+
+.contact-detail-item a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.contact-detail-item a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+@media(max-width: 900px) {
+    .colorful-title-hours {
+        font-size: 4rem;
+    }
+    
+    .hours-title {
+        font-size: 2rem;
+    }
+    
+    .hours-item {
+        font-size: 1.1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .contact-detail-item {
+        font-size: 1.1rem;
+    }
+}
+
+@media(max-width: 600px) {
+    .colorful-title-hours {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .hours-block {
+        padding: var(--spacing-md);
+    }
+    
+    .hours-title {
+        font-size: 1.5rem;
+    }
+    
+    .hours-item {
+        font-size: 1rem;
+        padding: var(--spacing-sm);
+    }
+    
+    .contact-detail-item {
+        font-size: 1rem;
+    }
 }
 
 /* ============================================
