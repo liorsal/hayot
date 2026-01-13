@@ -157,4 +157,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Floating Call Button Menu
+    const floatingCallBtn = document.getElementById('floating-call-btn');
+    const callMenu = document.getElementById('call-menu');
+    
+    if (floatingCallBtn && callMenu) {
+        // Toggle menu on button click
+        floatingCallBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            callMenu.classList.toggle('show');
+            floatingCallBtn.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!floatingCallBtn.contains(e.target) && !callMenu.contains(e.target)) {
+                callMenu.classList.remove('show');
+                floatingCallBtn.classList.remove('active');
+            }
+        });
+        
+        // Close menu when selecting a phone number
+        const callOptions = callMenu.querySelectorAll('.call-option');
+        callOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                callMenu.classList.remove('show');
+                floatingCallBtn.classList.remove('active');
+            });
+        });
+    }
 });

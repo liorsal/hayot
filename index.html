@@ -109,52 +109,32 @@
             <h2 class="section-title">מחלקות החנות</h2>
             <div class="categories-container">
                 <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-dog"></i>
-                    </div>
-                    <span class="category-label">כלבים</span>
+                    <div class="category-icon">🐦</div>
+                    <span class="category-label">מחלקת ציפורים</span>
                 </a>
                 <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-cat"></i>
-                    </div>
-                    <span class="category-label">חתולים</span>
+                    <div class="category-icon">🐟</div>
+                    <span class="category-label">מחלקת דגים ואקווריומים</span>
                 </a>
                 <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-dove"></i>
-                    </div>
-                    <span class="category-label">ציפורים</span>
+                    <div class="category-icon">🐹</div>
+                    <span class="category-label">מחלקת מכרסמים</span>
                 </a>
                 <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-fish"></i>
-                    </div>
-                    <span class="category-label">דגים</span>
+                    <div class="category-icon">🐶</div>
+                    <span class="category-label">מחלקת כלבים</span>
                 </a>
                 <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-bone"></i>
-                    </div>
-                    <span class="category-label">מזון</span>
+                    <div class="category-icon">🐱</div>
+                    <span class="category-label">מחלקת חתולים</span>
                 </a>
                 <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-couch"></i>
-                    </div>
-                    <span class="category-label">ציוד</span>
+                    <div class="category-icon">🎣</div>
+                    <span class="category-label">מחלקת ציוד דייג</span>
                 </a>
                 <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <span class="category-label">צעצועים</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <span class="category-label">מבצעים</span>
+                    <div class="category-icon">🧼</div>
+                    <span class="category-label">מחלקת בריאות וטיפוח</span>
                 </a>
             </div>
         </div>
@@ -178,11 +158,11 @@
             <div class="links-container">
                 <h3 class="links-title">גשו אלינו</h3>
                 <div class="location-links">
-                    <a href="https://waze.com/ul?q=כיכר%20צהל,%20קרית%20שמונה" target="_blank" class="link-btn waze-btn">
+                    <a href="https://ul.waze.com/ul?place=ChIJ5W65a1e9HhUR-UaOd_UvFmw&ll=33.20805100%2C35.56880600&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" class="link-btn waze-btn">
                         <i class="fab fa-waze"></i>
                         <span>Waze</span>
                     </a>
-                    <a href="https://www.google.com/maps/search/?api=1&query=כיכר+צהל+קרית+שמונה" target="_blank" class="link-btn google-btn">
+                    <a href="https://maps.app.goo.gl/e8NDZd99rU3tWkrn9" target="_blank" class="link-btn google-btn">
                         <i class="fab fa-google"></i>
                         <span>Google Maps</span>
                     </a>
@@ -194,7 +174,7 @@
                         <i class="fab fa-instagram"></i>
                         <span>Instagram</span>
                     </a>
-                    <a href="https://www.facebook.com/share/1AKoiiwtBb/" target="_blank" class="link-btn facebook-btn">
+                    <a href="https://www.facebook.com/share/16oW1DKFYK/" target="_blank" class="link-btn facebook-btn">
                         <i class="fab fa-facebook"></i>
                         <span>Facebook</span>
                     </a>
@@ -204,9 +184,21 @@
     </section>
 
     <!-- Floating Call Button -->
-    <a href="tel:0526109617" class="floating-call-btn" id="floating-call-btn" title="התקשר: 052-610-9617">
-        <i class="fas fa-phone"></i>
-    </a>
+    <div class="floating-call-container" id="floating-call-container">
+        <button class="floating-call-btn" id="floating-call-btn" title="התקשר">
+            📞
+        </button>
+        <div class="call-menu" id="call-menu">
+            <a href="tel:0526109617" class="call-option">
+                <i class="fas fa-phone"></i>
+                <span>052-6109617</span>
+            </a>
+            <a href="tel:046905420" class="call-option">
+                <i class="fas fa-phone"></i>
+                <span>04-690-5420</span>
+            </a>
+        </div>
+    </div>
 
     <!-- Discount Popup -->
     <div class="discount-popup" id="discount-popup">
@@ -214,16 +206,36 @@
             <i class="fas fa-times"></i>
         </button>
         <div class="popup-content">
+            <h1 class="colorful-title-popup">
+                <span class="letter" style="color: #FF6B6B;">צ</span>
+                <span class="letter" style="color: #4ECDC4;">י</span>
+                <span class="letter" style="color: #FFE66D;">פ</span>
+                <span class="letter" style="color: #95E1D3;">ו</span>
+                <span class="letter" style="color: #F38181;">ר</span>
+                <span class="letter" style="color: #AA96DA;">י</span>
+                <span class="letter" style="color: #FCBAD3;">ם</span>
+                <span class="letter" style="color: #FFD93D;">&nbsp;</span>
+                <span class="letter" style="color: #6BCB77;">ב</span>
+                <span class="letter" style="color: #FF6B9D;">ר</span>
+                <span class="letter" style="color: #C44569;">א</span>
+                <span class="letter" style="color: #F8B500;">ש</span>
+            </h1>
             <div class="popup-icon">
                 <i class="fas fa-tags"></i>
             </div>
             <h2 class="popup-title">מבצע מיוחד!</h2>
             <p class="popup-discount">10% הנחה</p>
             <p class="popup-text">על כל הקניות בחנות</p>
-            <a href="tel:0526109617" class="popup-call-btn">
-                <i class="fas fa-phone"></i>
-                התקשר עכשיו
-            </a>
+            <div class="popup-phone-buttons">
+                <a href="tel:0526109617" class="popup-call-btn">
+                    <i class="fas fa-phone"></i>
+                    052-6109617
+                </a>
+                <a href="tel:046905420" class="popup-call-btn">
+                    <i class="fas fa-phone"></i>
+                    04-690-5420
+                </a>
+            </div>
         </div>
     </div>
 
