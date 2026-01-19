@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liorsal.github.io/hayot/sitemap.xml
