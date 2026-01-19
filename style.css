@@ -1024,7 +1024,7 @@ img {
 }
 
 .colorful-title-popup {
-    font-size: 2rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: var(--spacing-md);
     text-align: center;
@@ -1129,7 +1129,6 @@ img {
     color: #FF6B6B;
     font-weight: 800;
     margin-bottom: var(--spacing-lg);
-    animation: pulse 1s infinite;
 }
 
 .popup-call-btn {
@@ -1185,7 +1184,7 @@ img {
     }
 
     .colorful-title-popup {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
     }
 
     .popup-content {
