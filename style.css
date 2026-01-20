@@ -853,6 +853,20 @@ img {
     margin-bottom: var(--spacing-sm);
 }
 
+.popup-brand {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #FF6B6B, #FFE66D, #6BCB77, #4ECDC4, #AA96DA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    white-space: nowrap;
+}
+
 .popup-discount {
     font-size: clamp(4rem, 8vw, 5.5rem);
     font-weight: 800;
